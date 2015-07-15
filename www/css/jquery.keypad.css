@@ -1,0 +1,113 @@
+/* Main style sheet for jQuery Keypad v2.0.0. */
+button.keypad-trigger {
+	width: 25px;
+	padding: 0px;
+}
+img.keypad-trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+.keypad-popup, .keypad-inline, .keypad-key, .keypad-special {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 20px;
+}
+.keypad-popup {
+	display: none;
+	z-index: 10;
+	margin: 0 auto;
+	padding: 2%;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #888;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
+	width: 92% !important;
+	left: 0 !important;
+	right: 0 !important;
+}
+.keypad-keyentry {
+	display: none;
+}
+.keypad-inline {
+	background-color: #fff;
+	border: 1px solid #888;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
+}
+.keypad-disabled {
+	position: absolute;
+	z-index: 100;
+	background-color: white;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.keypad-rtl {
+	direction: rtl;
+}
+.keypad-prompt {
+	clear: both;
+	text-align: center;
+}
+.keypad-prompt.ui-widget-header {
+	margin: 0.125em;
+}
+.keypad-row {
+	  text-align: center;
+}
+.keypad-space {
+	display: inline-block;
+	/* margin: 0.125em; */
+	/* margin: 0.125em; */
+	/* width: 1%; */
+	  margin-left: -20%;
+}
+.keypad-half-space {
+	display: inline-block;
+	margin: 0.125em 0.0625em;
+	width: 1em;
+}
+.keypad-key, .keypad-special {
+	/* margin: 0.125em; */
+	padding: 1%;
+	width: 20%;
+	background-color: #2B333C;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid #65cea7;
+	color: #65cea7;
+}
+.keypad-key[disabled] {
+	border: 0.125em outset;
+}
+.keypad-key-down {
+}
+.keypad-special {
+	width: 20%;
+}
+.keypad-spacebar {
+	width: 13.25em;
+}
+.keypad-tab {
+	width: 2em;
+}
+.keypad-clear, .keypad-back, .keypad-close, .keypad-shift {
+	color: #fff;
+	font-weight: bold;
+}
+.keypad-clear {
+	background-color: #a00;
+}
+.keypad-back {
+	background-color: #00a;
+}
+.keypad-close {
+	background-color: #0a0;
+}
+.keypad-shift {
+	background-color: #0aa;
+}

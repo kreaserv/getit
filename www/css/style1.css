@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'f37_bellaregular';
+    src: url('../fonts/f37_bella-webfont.eot');
+    src: url('../fonts/f37_bella-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/f37_bella-webfont.woff2') format('woff2'),
+         url('../fonts/f37_bella-webfont.woff') format('woff'),
+         url('../fonts/f37_bella-webfont.ttf') format('truetype'),
+         url('../fonts/f37_bella-webfont.svg#f37_bellaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_boldregular';
+    src: url('../fonts/gotham-bold-webfont.eot');
+    src: url('../fonts/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-bold-webfont.woff2') format('woff2'),
+         url('../fonts/gotham-bold-webfont.woff') format('woff'),
+         url('../fonts/gotham-bold-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-bold-webfont.svg#gotham_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_mediumregular';
+    src: url('../fonts/ufonts.com_gotham-medium-webfont.eot');
+    src: url('../fonts/ufonts.com_gotham-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.woff2') format('woff2'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.woff') format('woff'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.ttf') format('truetype'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.svg#gotham_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_lightregular';
+    src: url('../fonts/gotham-light-webfont.eot');
+    src: url('../fonts/gotham-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-light-webfont.woff2') format('woff2'),
+         url('../fonts/gotham-light-webfont.woff') format('woff'),
+         url('../fonts/gotham-light-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-light-webfont.svg#gotham_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*==============================================
+	Helper class
+==============================================*/
+
+.no_padding{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.full_width{
+	width:100%;
+}
+
+
+
+/*==============================================
+	Header
+==============================================*/
+.header {
+    width: 100%;
+	background: #2B333C;
+	color: #65cea7;
+	border-bottom: 3px solid #65cea7;
+}
+.header h1{
+	font-size:20px;
+	font-family: 'Open Sans', sans-serif;
+}
+.cart{
+	/* float:right; */
+	top: 8px;
+	/* text-align: right; */
+}
+.cart p{
+	display:inline-block;
+	margin: 0px 10px 0px;
+	
+}
+.cart a{
+	margin-left: 35px;
+	color: #65cea7;
+	
+}
+.cart_content{
+	float: right;
+}
+
+.products_contailer{
+  padding-top: 10px !important;
+  padding-left: 12px !important;
+}
+.main_product img{
+	width:200px;
+	height:200px;
+}
+
+.all_product img{
+	width:100px;
+	height:100px;
+}
+.all_product .bx-pager{
+	display:none;
+}
+
+.all_product .bx-wrapper .bx-prev {
+	background:url('../images/arrow-up.png') no-repeat ;
+	width:50px;
+	height: 50px;
+	opacity:0.5;
+	top: 0;
+	margin-top: 0px;
+}
+.all_product .bx-wrapper .bx-prev:hover{
+
+	opacity:1;
+}
+.all_product .bx-wrapper .bx-next {
+	background:url('../images/arrow-down.png') no-repeat ;
+	width:50px;
+	height: 50px;
+	opacity:0.5;
+	bottom: 0;
+}
+.all_product .bx-wrapper .bx-next:hover {
+	opacity:1;
+}
+.all_product .bx-wrapper .bx-controls-direction a.bx-next{
+	top: 100%;
+	margin-top: -50px;
+}
+.all_product .bx-wrapper .bx-controls-direction a{
+    left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.product_main_image img{
+	width:300px;
+	height:300px;
+}
+.product_main_image{
+	text-align: center;
+	padding: 35px;
+}
+.product_image_container .bx-pager{
+	display:none;
+}
+
+.product_image_container .bx-wrapper .bx-next {
+	background:url('../images/arrow-left.png') no-repeat ;
+	width:25px;
+	height: 25px;
+	opacity:0.5;
+}
+
+.product_image_container .bx-wrapper .bx-prev {
+	background:url('../images/arrow-right.png') no-repeat 0 0;
+	width:25px;
+	height: 25px;
+	opacity:0.5;
+}
+.product_image_container .bx-wrapper .bx-next:hover {
+	opacity:1;
+}
+.product_image_container .bx-wrapper .bx-prev:hover {
+	opacity:1;
+}
+.product_img_tag{
+	cursor:pointer;
+}
+
+
+.custom_add_to_cart{
+	color: #65cea7;
+	background-color: #2B333C;
+	border-color: #65cea7;
+}
+.custom_add_to_cart:hover{
+	color: #2B333C;
+	background-color: #65cea7;
+	border-color: #2B333C;
+}
+
+.cart_view_table{
+	width:100%;
+}
+.cart_view_table th{
+	text-align:center;
+	border: 1px solid #65cea7 !important;
+	padding: 2%;
+}
+.cart_view_table td{
+	text-align:center;
+	border: 1px solid #65cea7 !important;
+	padding: 2%;
+}
+.cart_view_div h3{
+	background-color: #65cea7;
+	padding: 1%;
+}
+.hidden1{
+	visibility: hidden;
+	border: none !important;
+}
+
+.action_buttons{
+	/* background-color: #65cea7; */
+	padding: 0.5%;
+	margin-top: 2%;
+	
+}
+.action_buttons .btn,.login_submit_btn{
+	color: #65cea7;
+	background-color: #2B333C;
+	border-color: #65cea7;
+	
+}
+
+.action_buttons .btn:hover{
+	color: #2B333C;
+	background-color: #65cea7;
+	border-color: #2B333C;
+}
+.login_submit_btn:hover{
+	color: #2B333C;
+	background-color: #65cea7;
+	border-color: #2B333C;
+}
+
+.action_buttons a{
+	float: right;
+}
+.cart_view_div h2{
+	color: #65cea7;
+}
+
+.numpad_div{
+	text-align: center;
+	padding-top: 10%;
+
+}

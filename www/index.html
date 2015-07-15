@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
     distributed with this work for additional information
@@ -19,33 +21,406 @@
 -->
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+      <!--   <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
         <title>Hello World</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/jquery.bxslider.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/sweetalert.css" />
+		<style type="text/css">
+			.all_pages{
+				display:none;
+				text-align: center;
+				margin-top: 45px;
+			}
+		</style>
+	
     </head>
     <body>
-       <!--  <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div> -->
+        
+	<div class="loader" id='loader'>
+		<center>
+			<img src="images/loader.gif">
+		</center>
+	</div>
+<!-- 	<div id="header" data-include="header"></div> -->
+	<header>
+		<div class="container-fluid header no_padding">
+			<div class="col-md-2 col-sm-2 col-xs-2 nav_button head_left_right_btn">
+				<i class="fa fa-bars menu_icon"></i>
+				<div class="menu">
+					<ul class="navigation">
+						<li id="nav_login_btn">Login</li>
+						<li id="nav_register_btn">Register</li>
+						<!-- <li class="get_cart_list">Cart</li>
+						<li class="get_wish_list">Wishlist</li> -->
+						<li id="nav_help_centre_btn">Help Centre</li>
+						<li id="nav_legal_btn">Legal</li>
+						<li id="nav_logout_btn" style="display:none;">Logout</li>
+					</ul>
+				</div>
+			</div>                      
+			<div class="col-md-2 col-sm-2 col-xs-2 heart get_wish_list" >
+				<i class="fa fa-heart"><span class="badge" id="total_products_wish">0</span></i>                        
+			</div>                      
+			<div class="col-md-4 col-sm-4 col-xs-4 header_logo" id="logo">
+				                        
+				<!-- <img src="images/logo.png" alt=""  /> -->
+				<img src="images/logo.png" alt="" style="  margin-top: 10px;"  />
+				                        
+			</div>                      
+			<div class="col-md-2 col-sm-2 col-xs-2 user_profile">
+				<i class="fa fa-sort-down down_arrow"></i><i class="fa fa-user"></i>                        
+			</div>                      
+			<div class="col-md-2 col-sm-2 col-xs-2 head_left_right_btn cart get_cart_list" >
+				<i class="fa fa-shopping-cart"><span class="badge" id="total_products_cart">0</span></i>
+			</div>
+			
+		</div>
+	</header>
+	
+	<!-- -------------------welcome section starts------------------------ -->
+		<section class="welcome_screen" id="" >
+		<!-- <div class="container-fluid">
+		</div> -->
+			<img src="images/login_logo.png" class="welcome_logo" alt="" />
+			
+		</section>
+	<!-- -------------------welcome  section ends------------------------ -->
+	
+	
+	<!-- -------------------login-register section Starts----------------------------->
+	<section class="all_pages" id="login_register_page" style="margin-top:0px;">
+		<div class="login-register-container" >
+			<img src="images/login_logo.png" alt="" style="width:250px;" />
+			
+				<div style="margin-top:30px;" >
+					<button class="login-register_btns" id="login-register_login_btn">Login</button>
+					<button class="login-register_btns" id="login-register_register_btn">Register</button>
+						
+				</div>
+				<p class="login-register_skip">Skip</p>
+			
+				
+		</div>
 		
-		nitesh
-        <script type="text/javascript" src="cordova.js"></script>
+	</section>
+	
+	
+	
+	<!-- -------------------login-register ends----------------------------->
+	
+	
+	
+	
+	
+	<!-- -------------------enter code section starts------------------------ -->
+	<section class="all_pages" id="enter_code" >
+		<div class="container-fluid">
+			<div class="col-md-12 col-sm-12 col-xs-12 ">
+				<input type="text" name="getit_code" id="getit_code" data-type="digits" max-length="6" />
+				<p>Enter the 6 digit Get Now Code <br /> that you see at the bottom of the icon <br />that looks like this</p>
+				
+			
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 ">
+				
+				<input type="button" value="Submit" id="submit_code"/>
+			
+			</div>
+		</div>
+	</section>
+	<!-- -------------------enter code section ends----------------------------->
+	
+	
+	<!-- -------------------products page section statrs--------------------------->
+	<section class="all_pages" id="page_products">
+		<div class="container-fluid no_padding">
+			<div class="add_to_cart_wish_overlay" style="display:none;">
+				<div  class="overlay_addtocart_container_1" ></div>
+				<div  class="overlay_addtocart_container" >
+					<i class="fa fa-times overlay_open_close"></i>
+					<div class="overlay_addtocart_container_content">
+						<div class="padding-md">
+							<label class="overlay_addtocart add_to_cart_wish_btn"  id="add_to_cart" alt="" for="" >ADD TO CART?</label>
+									<i class="fa fa-play overlay_fa-play"></i>
+							<p><label class="add_to_cart_wish_btn" id="add_to_wish" alt="" >Save it for later?</label></p>
+						</div>
+					</div>
+					<div class="popup_align" style="display: inline-block; vertical-align: middle; height: 100%;"></div>
+				</div>
+				
+			</div>
+			<div class="col-md-9 col-sm-9 col-xs-9 no_padding main_product_container">
+				<!-- <div class="main_image_container"> -->
+					<img src="" id="selected_product" alt="" />
+				<!-- </div> -->
+				<div class="margin_top_10">
+					<div class="col-md-8 col-sm-8 col-xs-8 no_padding description_div">
+						<span id="product_name"></span>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4 no_padding" style="text-align:right;">
+						<p class="price_label">$ <span id="price"></span></p>
+						<span class="add_to_cart_label overlay_open_close"  alt="" >+ADD TO CART</span>
+					</div>
+				</div>
+				<div class="margin_top_10">
+					<span id="desc"></span>
+				</div>
+				
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3 no_padding all_products_slider_container ">
+				<p class="similar_products_text">SIMILAR PRODUCTS</p>
+				<div id="all_products_slider">
+					<!-- right side slider -->
+				</div>
+			</div>
+			
+
+		</div>
+		
+	</section>
+	
+	<!-- -------------------products page section ends----------------------------->
+	<!-- -------------------product Gallery section Starts-------------------------->
+	<section class="all_pages" id="product_gallery">
+		<div class="container-fluid">
+			<i class="fa fa-times gallery_close"></i>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<img src="" class="" id="product_gallery_main_image" alt="" />
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 gallery_thumb_container" >
+				<div id="product_gallery_all_images">
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- -------------------product Gallery section ends----------------------------->
+	<!-- -------------------Wish List section starts--------------------------------->
+	<section class="all_pages margin_top_0" id="wish_list">
+		<div class="container-fluid no_padding" style="text-align: left;">
+			<h2 class="list_h2">My Wish</h2>
+			<div id="all_product_list" ></div>
+			<button class="save_list list_btns save_wish_list_btn">Save List</button>
+			<button class="clear_list list_btns clear_wish_list_btn">Clear List</button>
+		</div>
+	</section>
+	
+	<!-- -------------------Wish List section ends----------------------------->
+	
+	<!-- -------------------Cart List section starts--------------------------------->
+	<section class="all_pages margin_top_0" id="cart_list">
+		<div class="container-fluid no_padding" >
+			<h2 class="list_h2">My Cart</h2><button class="check_out_btn" style="display:none;">Place Order</button>
+			<div id="all_cart_product_list" ></div>
+			
+		</div>
+	</section>
+	
+	<!-- -------------------Cart List section ends----------------------------->
+	
+	
+	<!-- -------------------user page section starts----------------------------->
+	<section class="all_pages" id="user_page" style="margin-top:0px;">
+		<div class="container-fluid no_padding user_page_container">
+		
+			<h3 class="dear_user">Dear User</h3>
+			
+			<img src="images/user.png" class="user_image" alt="" />
+			<div class="container-fluid no_padding user_my_total">
+					
+				<div class="col-xs-12 col-sm-12 col-md-12 box_shadow"></div>	
+				<div class="col-xs-6 col-sm-6 col-md-6 cart_img_my_total">
+					<img src="images/cart.png" class="cart_img" alt="" />
+					<span class="my_total" >My Total</span>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 price_n_dropdown">
+					<span class="price_label">$ <label id="total_amount"></label>/-</span>
+					<span class="drop_down"><i class="fa fa-caret-down"></i></span>
+					
+				</div>
+			</div>
+			
+			<div class="container-fluid no_padding user_my_total payment_method">
+					
+					
+				<div class="col-xs-9 col-sm-9 col-md-9 cart_img_my_total payment_method_text">
+					<img src="images/rupee.png" class="rupee_img" alt="" />
+					<span class="my_total " >Payment Method</span>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown">
+					<span class="drop_down"><i class="fa fa-caret-down"></i></span>
+					
+				</div>
+			</div>
+			
+			<div class="container-fluid no_padding user_my_total payment_method" style="margin-bottom:18%;">
+					
+					
+				<div class="col-xs-9 col-sm-9 col-md-9 cart_img_my_total payment_method_text">
+					<img src="images/location.png" class="location_img" alt="" />
+					<span class="my_total user_address" >Your Address</span>
+					<div class="address_form">
+						<form class="address_form_tag" method="post" action="http://localhost/getit_final/home/save_address">
+							<input type="text" class="address_input" name="address_name" placeholder="Name *" required />
+							<!-- <input type="text" class="address_input" id="full_address" placeholder="Address *"/> -->
+							<textarea class="address_input" name="full_address" placeholder="Address *" cols="30" rows="2" required></textarea>
+							<input type="text" class="address_input" name="address_city" placeholder="City *" required/>
+							
+							<input type="text" class="address_input" name="address_state" placeholder="State *"  required />
+							<input type="text" class="address_input" name="address_pin" placeholder="Pincode *" required />
+							<input type="text" class="address_input" name="address_phone" placeholder="Contact no. *" pattern='[0-9]*' maxlength="10"  required />
+							<button id="save_address" class="address_input">Save</button>
+						</form>
+					</div>
+					<p class="user_address_p " id="user_address"></p>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown">
+					<span class="drop_down address_dropdown"><i class="fa fa-caret-down"></i></span>
+					
+				</div>
+			</div>
+			<input type="button" value="Pay Now" class="pay_now_button" id="pay_now_button"/>
+			<!-- <div class="container-fluid no_padding">
+					
+					
+				<div class="col-xs-12 col-sm-12 col-md-12 no_padding">
+					<input type="button" value="Pay Now" class="pay_now_button"/>
+				</div>
+				
+			</div> -->
+			
+		</div>	
+		
+	
+	</section>
+	<!-- -------------------user page section ends----------------------------->
+	<!-- -------------------login section Starts----------------------------->
+	<section class="all_pages" id="login_page" style="margin-top:0px;">
+		<div class="container-fluid no_padding ">
+			<img src="images/login_logo.png" class="login_logo" alt="" />
+			<p class="member_login">Member Login</p>
+			<br />
+			
+				<div class="container-fluid no_padding">
+					<div class="col-xs-1 col-sm-1 col-md-1 no_padding"></div>
+					<div class="col-xs-10 col-sm-10 col-md-10" style="padding-left:0;">
+						<div class="login_input_fields">
+							<input type="text" class="login_page_input" id="user_name" name="user_name" placeholder="Username" />
+							<div class="border_div"></div>
+							<input type="password" class="login_page_input" id="password" name="password" placeholder="Password" />
+							<button id="login_form_submit" class="login_btn"><i class="fa fa-play login_play_icon"></i></button>
+						</div>
+						<p class="login_forget_password" data-toggle="modal" data-target="#myModal">forget your password? click here</p>
+					</div>
+					<img src="images/login_userr.png" class="login_register_img" style="margin-top:4%;" alt="" />
+					<div class="col-xs-1 col-sm-1 col-md-1 no_padding"></div>
+				
+				</div>
+				
+		</div>
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Forget Password</h4>
+			  </div>
+			  <div class="modal-body">
+				<!-- <p>Some text in the modal.</p> -->
+				<div class="form-group">
+				  <input type="text" class="form-control" id="fog_email_login" name="email" placeholder="Email">
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="submit_forget_pass_reg">Send</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	</section>
+	<!-- -------------------login section ends----------------------------->
+	
+	
+	<!-- -------------------Register section ends----------------------------->
+	<section class="all_pages" id="register_page"  style="margin-top:0px;">
+		<div class="container-fluid no_padding ">
+			<img src="images/login_logo.png" class="login_logo" alt="" />
+			<p class="member_login">Register</p>
+			<br />
+			
+				<div class="container-fluid no_padding">
+					<div class="col-xs-1 col-sm-1 col-md-1 no_padding"></div>
+					<div class="col-xs-10 col-sm-10 col-md-10" style="padding-left:0;">
+						<div class="login_input_fields">
+							<input type="text" class="register_page_input" id="reg_user_name" name="" placeholder="Username" />
+							<div class="border_div"></div>
+							<input type="password" class="register_page_input" id="reg_password" name="" placeholder="Password" />
+							<div class="border_div"></div>
+							<input type="password" class="register_page_input" id="reg_con_password" name="" placeholder="Confirm Password" />
+							<button id="register_form_submit" class="login_btn margin_top_-20"><i class="fa fa-play login_play_icon"></i></button>
+						</div>
+						<p class="login_forget_password" data-toggle="modal" data-target="#myModal1">forget your password? click here</p>
+						
+						
+					</div>
+					<img src="images/register_pen.png" class="login_register_img" alt="" />
+					<div class="col-xs-1 col-sm-1 col-md-1 no_padding"></div>
+				
+				</div>
+				
+		</div>
+		<!-- Modal -->
+		<div id="myModal1" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Forget Password</h4>
+			  </div>
+			  <div class="modal-body">
+				<!-- <p>Some text in the modal.</p> -->
+				<div class="form-group">
+				  <input type="text" class="form-control" id="fog_email" name="" placeholder="Email">
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="submit_forget_pass">Send</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	</section>
+	<!-- -------------------Register section ends----------------------------->
+		
+		
+        <script type="text/javascript" src="js/cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+		<footer>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/bootstrap.min.js" ></script>
+		<script src="js/sweetalert.min.js" ></script>
+		<script src="js/jquery.bxslider.min.js" ></script>
+		<script src="js/jquery.form.js" ></script>
+		
+		<script src="js/script.js" ></script>
+	</footer>
     </body>
 </html>

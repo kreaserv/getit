@@ -1,0 +1,847 @@
+@font-face {
+    font-family: 'f37_bellaregular';
+    src: url('../fonts/f37_bella-webfont.eot');
+    src: url('../fonts/f37_bella-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/f37_bella-webfont.woff2') format('woff2'),
+         url('../fonts/f37_bella-webfont.woff') format('woff'),
+         url('../fonts/f37_bella-webfont.ttf') format('truetype'),
+         url('../fonts/f37_bella-webfont.svg#f37_bellaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_boldregular';
+    src: url('../fonts/gotham-bold-webfont.eot');
+    src: url('../fonts/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-bold-webfont.woff2') format('woff2'),
+         url('../fonts/gotham-bold-webfont.woff') format('woff'),
+         url('../fonts/gotham-bold-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-bold-webfont.svg#gotham_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_mediumregular';
+    src: url('../fonts/ufonts.com_gotham-medium-webfont.eot');
+    src: url('../fonts/ufonts.com_gotham-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.woff2') format('woff2'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.woff') format('woff'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.ttf') format('truetype'),
+         url('../fonts/ufonts.com_gotham-medium-webfont.svg#gotham_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_lightregular';
+    src: url('../fonts/gotham-light-webfont.eot');
+    src: url('../fonts/gotham-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-light-webfont.woff2') format('woff2'),
+         url('../fonts/gotham-light-webfont.woff') format('woff'),
+         url('../fonts/gotham-light-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-light-webfont.svg#gotham_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*==============================================
+	Helper class
+==============================================*/
+
+.no_padding{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.full_width{
+	width:100%;
+}
+.alert-danger{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5px;
+	border-radius: 5px;
+}
+.margin_top_10{
+	margin-top: 10px;
+}
+
+.bx-wrapper .bx-viewport {
+  -webkit-box-shadow: none;
+  box-shadow:none;
+  
+ }
+ .bx-pager{
+	display:none;
+ }
+.margin_top_0{
+	margin-top:0px !important;
+}
+.modal{
+	top:60px; !important;
+}
+.modal-backdrop{
+    z-index: -99;
+}
+/*==============================================
+	Header
+==============================================*/
+.loader{
+	height: 100%;
+	/* background: url("../img/background.png") no-repeat center center fixed; */
+	width: 100%;
+	/* background-size: cover; */
+	display: block;
+	z-index: 9999999999999 !important;
+	position: absolute;
+	background-color: #000;
+	opacity: 0.75;
+}
+
+.loader img{
+	padding: 65% 0; 
+	height: 20%;
+	width: 20%;
+	z-index: 9999999999999 !important;
+}
+
+
+.header{
+	background-color:#000;
+	color:#fff;
+
+}
+.head_left_right_btn{
+	background-color: #111111;
+	color: #ccc;
+	font-size: 25px;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+.cart{
+	color:#ffca00;
+}
+.badge{
+	color:#000;
+	background-color: #fff;
+	margin-left: -10px;
+}
+.heart{
+	color:#fe1f3e;
+	font-size: 21px;
+	text-align: center;
+	padding: 14px;
+}
+.user_profile{
+	font-size: 20px;
+	text-align: center;
+	padding: 15px 0px;
+}
+
+.down_arrow{
+	font-size: 18px !important;
+	margin-right: 5px;
+	color: #111111;
+
+}
+
+.header_logo{
+	padding: 0px;
+	text-align: center;
+
+}
+.menu{
+	position:relative;
+	
+}
+.navigation{
+	/* display:none; */
+	position: absolute;
+	background: #000;
+	left: -300px;
+	top: 12px;
+	color: #fff;
+	text-align: left;
+	padding: 10px;
+	z-index: 99999999;
+	opacity: 0.9;
+}
+.navigation li{
+	list-style: none;
+	border-bottom: 3px solid #252525;
+	/* opacity: 0.5; */
+	/* color: #fff; */
+	padding: 10px;
+	width: 250px;
+}
+.nav_active{
+	margin-left: 0px !important;
+}
+#add_to_wish{
+	color: #fff;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+.welcome_screen{
+	position:absolute;
+	background-image : url("../images/welcome.jpg");
+	background-size: cover;
+	width:100%;
+	top:0;
+	bottom:0;
+	
+}
+.welcome_logo{
+	position: absolute;
+	bottom: 20%;
+	width: 75%;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+}
+
+
+/*==============================================
+	Enter code
+==============================================*/
+
+
+#enter_code input{
+	border:none;
+	border-bottom:1px solid #525252;
+	letter-spacing: 10px;
+    text-align: center;
+    font-size: 18px;
+    width: 57%;
+    font-weight: 600;
+    color: #525252;
+
+}
+#enter_code input:focus{
+	outline-color: white;
+}
+#enter_code p{
+	font-weight: 600;
+	padding: 11px;
+    font-size: 15px;
+}
+#submit_code{
+	background-color: #ffcb00;
+	width: 85% !important;
+	letter-spacing: 0px !important;
+	height: 45px;
+	font-size: 23px;
+	border-bottom: none !important;
+}
+
+/*==============================================
+	Page products
+==============================================*/
+
+#page_products{
+	text-align: left;
+	margin-top: 12px;
+
+}
+
+#all_products_slider{
+	padding:8%;
+}
+
+#selected_product{
+	max-width:100%;
+}
+.main_product_container{
+	padding-left:10px;
+}
+.similar_products_text{
+	font-size: 9px;
+	text-align: center;
+	font-weight: 600;
+	
+}
+.price_label{
+	text-align: center;
+	background-color: #59b11f;
+	padding: 4px;
+	color: #fff;
+	margin: 0;
+}
+.description_div{
+	font-size: 22px;
+	text-transform: capitalize;
+}
+.get_product{
+	border:1px solid #7c7c7c;
+}
+.active_border{
+	border: 3px solid #d12032;
+}
+.add_to_cart_label{
+	font-size: 9px;
+	text-align: right;
+	padding: 6px 0;
+	font-weight: 600;
+	margin-left: -4px;
+}
+
+.all_products_slider_container .bx-pager{
+	display:none;
+}
+
+.all_products_slider_container .bx-wrapper .bx-prev {
+	background:url('../images/up_arrow.png') no-repeat ;
+	width:50px;
+	height: 50px;
+	/* opacity:0.5; */
+	top: -25px;
+}
+
+.all_products_slider_container .bx-wrapper .bx-next {
+	background:url('../images/down_arrow.png') no-repeat ;
+	width:50px;
+	height: 50px;
+	/* opacity:0.5; */
+	bottom: 0;
+}
+
+.all_products_slider_container .bx-wrapper .bx-controls-direction a.bx-next{
+	top: 115%;
+	/* margin-top: -50px; */
+}
+.all_products_slider_container .bx-wrapper .bx-controls-direction a{
+    left: 0;
+	right: 0;
+	margin: auto;
+}
+.overlay_addtocart_container_1{
+	 opacity: 0.75;
+	  visibility: visible;
+	  position: fixed;
+	  overflow: auto;
+	  z-index: 9999999;
+	  transition: all 0.3s;
+	  -webkit-transition: all 0.3s;
+	  top: 58px;
+	  right: 0px;
+	  left: 0px;
+	  bottom: 0px;
+	  text-align: center;
+	  display: block;
+	  background-color: #000;
+
+}
+.overlay_addtocart_container{
+
+  visibility: visible;
+  position: fixed;
+  overflow: auto;
+  z-index: 9999999;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  top: 58px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  text-align: center;
+  display: block;
+
+}
+
+.overlay_addtocart{
+	background-color: #fff;
+	color: #000;
+	padding: 15px 75px 10px 25px;
+	font-size: 13px;
+}
+
+.overlay_addtocart_container_content{
+	opacity: 1;
+	visibility: visible;
+	display: inline-block;
+	outline: none;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	text-align: left;
+	position: relative;
+	vertical-align: middle;
+}
+.overlay_fa-play{
+	width: 48px;
+	height: 47px;
+	background-color: #fff;
+	color: #000;
+	padding: 13px 0px 0px 3px;
+	border-radius: 50%;
+	text-align: center;
+	border: 4px solid #000 !important;
+	margin-left: -29px;
+	opacity: 1 !important;
+}
+.overlay_addtocart_container .overlay_open_close{
+	font-size: 22px !important;
+	position: absolute;
+	right: 10px;
+	color: #ccc;
+}
+
+/*==============================================
+	product gallery
+==============================================*/
+
+
+#product_gallery_main_image{
+	max-width: 100%;
+	max-height: 300px;
+}
+
+
+.gallery_thumb_container{
+	padding-top:20px;
+}
+
+.gallery_thumb_container .bx-wrapper .bx-prev {
+	background:url('../images/left_arrow.png') no-repeat ;
+	height: 50px;
+	
+}
+
+.gallery_thumb_container .bx-wrapper .bx-next {
+	background:url('../images/right_arrow.png') no-repeat ;
+	height: 50px;
+}
+#product_gallery_all_images img{
+	border:1px solid #7c7c7c;
+}
+
+.msg_container{
+	position: absolute;
+	z-index: 999;
+	left: 0;
+	right: 0;
+	text-align: center;
+	top: 50%;
+	opacity: 0.75;
+}
+.gallery_close{
+	position: absolute;
+	top: 10%;
+	right: 3%;
+}
+/*==============================================
+	Wish List
+==============================================*/
+.list_prod_name{
+	font-size:25px;
+	text-transform:capitalize;
+}
+
+.list_h2{
+	text-align: left;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	width: 40%;
+	display: inline-block;
+	
+}
+.list_product{
+	background-color:#c9c9c9;
+	/* position: absolute; */
+	text-align: left;
+	padding: 7px 12px 15px;
+	margin-top: 15px;
+}
+.list_product .price_label{
+	margin-left:10px;
+	
+}
+.list_product input{
+	width: 12%;
+	text-align: center;
+	background-color: #000;
+	border: none;
+	color: #fff;
+	height: 25px;
+}
+.list_qty{
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.remove_label{
+	font-size: 8px;
+	color: #d33033;
+	vertical-align: bottom;
+	margin: 5px;
+	padding: 0px;
+}
+.list_product img{
+	max-width:100%;	
+}
+.add_to_cart_label2{
+	font-size: 8px;
+	color: #59B11F;
+	vertical-align: bottom;
+	margin: 0px;
+	padding: 0px;
+}
+.save_list{
+
+	width:50%;
+	background-color:#5ab120;
+}
+
+.clear_list{
+	width:50%;
+	background-color:#e01532;
+	right:0px;
+}
+.list_btns{
+	color: #fff;
+	font-size: 22px;
+	height: 60px;
+	border: none;
+	bottom:0px;
+	position:fixed;
+}
+.list_btns:focus{
+	outline-style:none;
+}
+.check_out_btn{
+	background-color: #5bc216;
+	color: #fff;
+	font-size: 20px;
+	height: 50px;
+	border: none;
+	width: 52%;
+	/* float: right; */
+	display: inline-block;
+	font-weight: bold;
+}
+.check_out_btn:focus{
+	outline-style:none;
+}
+#cart_list{
+	text-align:left;
+}
+/*==============================================
+	User Page
+==============================================*/
+
+.user_page_container{
+	text-align:center;
+	background-color:#f5f4f4;
+	padding-top: 5px;
+}
+.dear_user{
+	font-weight:bold;
+}
+.user_image{
+	margin-top:10px;
+	width:125px;
+	height:125px;
+}
+.user_my_total{
+	background-color:#fff;
+	text-align:left;
+	margin-top: 30px;
+}
+.cart_img{
+	width:35px;
+	height:35px;
+}
+.cart_img_my_total{
+	padding: 15px;
+	padding-left: 25px;
+	  
+}
+.my_total{
+	margin-left: 5px;
+	vertical-align: middle;
+	font-weight: 400;
+	font-size: 18px;
+	/* line-height: 28px; */
+	margin-top: 7px;
+	display: inline-block;
+}
+.drop_down{
+	background-color: #e7e7e7;
+	padding: 1px 12px 3px;
+	font-size: 19px;
+	color: #bfbfbf;
+}
+.price_n_dropdown{
+	text-align: right;
+	padding: 20px 15px 0px;
+	
+}
+.price_n_dropdown .price_label{
+	margin-right: 9px;
+	padding: 4px 12px 4px;
+}
+
+.payment_method{
+	margin-top: 5px;
+}
+.payment_method_text{
+	padding-left: 36px;
+}
+.rupee_img{
+  width: 12px;
+  height: 17PX;
+  margin-top: 4PX;
+}
+
+.payment_method_text span{
+	margin-left:18px;
+}
+.location_img{
+	width: 17px;
+}
+.user_address{
+	margin-left: 11px !important;
+}	
+.user_address_p{
+	margin-left: 34px;
+	font-size: 13px;
+	color: #bfbfbf;
+}
+
+.pay_now_button{
+	width: 100%;
+	color: #fff;
+	background-color: #5ab120;
+	border: none;
+	min-height: 58px;
+	font-size: 25px;
+	bottom: 0;
+	position: fixed;
+	left: 0;
+}
+.box_shadow{
+	box-shadow: 0 -7px 9px #aaa;
+	-webkit-box-shadow: 0 -7px 9px #aaa;
+}
+
+.address_form{
+	display:none;
+}
+.address_input{
+	width:100%;
+	margin-top:5px;
+}
+/*==============================================
+	User login
+==============================================*/
+#login_page{
+	background-image: url('../images/register_bg.jpg');
+	background-size: cover;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	top: 0%;
+	z-index: -9;
+	overflow-y: scroll;
+}
+
+.login_logo{
+	margin-top:140px;
+	width: 225px;
+}
+.member_login{
+	color: #fff;
+	font-size: 22px;
+}
+
+.login_input_fields{
+	background-color: #ffcc00;
+	width: 100%;
+	/* display: inline-block; */
+	/* padding: 5%; */
+	  padding: 0px 16px 0px 5%;
+	/* text-align: right; */
+	box-shadow: 1px 4px 12px 0px #000;
+	text-align: left;
+}
+
+.login_page_input{
+	width: 85%;
+	border: none;
+	background-color: #ffcc00;
+	height: 50px;
+	font-size: 14px;
+	color: #000;
+}
+#login_page input:focus{
+	outline-style: none;
+}
+
+.border_div{
+	border-bottom: 2px solid #000 !important;
+}
+
+
+
+.login_forget_password{
+
+	color: #fff;
+	margin: 2% 5%;
+	width: 85%;
+	font-size: 1em;
+}
+
+.login_btn{
+	float: right;
+	margin-top: -12%;
+	margin-right: -40px;
+	border-radius: 50%;
+	border: 6px solid #000;
+	background-color: #ffcc00;
+	/* font-size: 9px; */
+	padding: 15px 20px;
+	color: #000
+}
+.login_btn:focus{
+	outline-style:none;
+}
+
+/*==============================================
+	User Register
+==============================================*/
+#register_page{
+	/* background-image:url('../images/register_bg.jpg');
+	background-size: cover;
+	text-align:center; */
+	  background-image: url('../images/register_bg.jpg');
+	background-size: cover;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	top: 0%;
+	z-index: -9;
+}
+
+.register_page_input{
+	width: 85%;
+	height: 50px;
+	font-size: 14px;
+	color: #000;
+	border: none;
+	background-color: #ffcc00;
+}
+#register_page input:focus{
+	outline-style: none;
+}
+
+.margin_top_-20{
+	margin-top:-58px !important; 
+}
+.login_register_img{
+	width: 25%;
+	/* position: absolute;	*/
+	position:fixed;
+	bottom: 0px;
+	right: 10px;
+}
+
+/* login-register */
+#login_register_page{
+	/* background-image:url('../images/register_bg.jpg');
+	background-size: cover;
+	text-align:center; */
+	display:block;
+	background-image: url('../images/register_bg.jpg');
+	background-size: cover;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	top: 0%;
+	z-index: -9;
+	/* right: -100%;
+	display:none;
+	-webkit-transition: 0.75s ease-in-out;
+	-moz-transition: 0.75s ease-in-out;
+	-o-transition: 0.75s ease-in-out;
+	transition: 0.75s ease-in-out; */
+}
+
+.login-register_btns{
+	margin-top: 8px;
+	width: 100%;
+	height: 42px;
+	font-size: 22px;
+	color: #000;
+	border: none;
+	background-color: #ffcc00;
+	box-shadow: 1px 4px 10px 2px #000;
+}
+.login-register-container{
+	bottom: 18%;
+	position: absolute;
+	width: 80%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.login-register_skip{
+	float: right;
+	color: #fff;
+	margin-top: 8px;
+	margin-right: 15px;
+}
+/* extra */
+
+.menu_active{
+	-webkit-transform: rotate(90deg) !important;
+  -moz-transform: rotate(90deg) !important;
+  -o-transform: rotate(90deg) !important;
+  -ms-transform: rotate(90deg) !important;
+  transform: rotate(90deg) !important;
+}
+
+.menu_icon{
+	-webkit-transition: 0.75s ease-in-out;
+	-moz-transition: 0.75s ease-in-out;
+	-o-transition: 0.75s ease-in-out;
+	transition: 0.75s ease-in-out;
+}
+.navigation{
+	-webkit-transition: 0.75s ease-in-out;
+	-moz-transition: 0.75s ease-in-out;
+	-o-transition: 0.75s ease-in-out;
+	transition: 0.75s ease-in-out;
+}
+.navigation_active{
+	left:-15px !important;
+}
+
+::-webkit-input-placeholder { 
+    color:    #000;
+}
+:-moz-placeholder { 
+   color:    #000;
+   opacity:  1;
+}
+::-moz-placeholder { 
+   color:    #000;
+   opacity:  1;
+}
+:-ms-input-placeholder { 
+   color:    #000;
+}
