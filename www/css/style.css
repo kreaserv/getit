@@ -667,14 +667,23 @@
 }
 
 .login_input_fields{
-	background-color: #ffcc00;
+	/* background-color: #ffcc00;
 	width: 100%;
-	/* display: inline-block; */
-	/* padding: 5%; */
+	display: inline-block;
+	padding: 5%;
 	  padding: 0px 16px 0px 5%;
-	/* text-align: right; */
+	text-align: right;
 	box-shadow: 1px 4px 12px 0px #000;
-	text-align: left;
+	text-align: left; */
+	  background-color: #ffcc00;
+  width: 100%;
+  /* display: inline-block; */
+  /* padding: 5%; */
+  padding: 0px 16px 0px 5%;
+  /* text-align: right; */
+  box-shadow: 1px 4px 12px 0px #000;
+  text-align: left;
+  position: relative;
 }
 
 .login_page_input{
@@ -704,15 +713,31 @@
 }
 
 .login_btn{
-	float: right;
+	/* float: right;
 	margin-top: -12%;
 	margin-right: -40px;
 	border-radius: 50%;
 	border: 6px solid #000;
 	background-color: #ffcc00;
-	/* font-size: 9px; */
+	font-size: 9px;
 	padding: 15px 20px;
-	color: #000
+	color: #000 */
+	  /* float: right; */
+  /* margin-top: -12%; */
+  /* margin-right: -40px; */
+  border-radius: 50%;
+  border: 6px solid #000;
+  background-color: #ffcc00;
+  /* font-size: 9px; */
+  /* padding: 15px 20px; */
+  color: #000;
+  position: absolute;
+  right: -30px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70px;
+  height: 70px;
 }
 .login_btn:focus{
 	outline-style:none;
