@@ -2,8 +2,8 @@
 $(document).ready(function(){
 	
 	//var base_url = "http://192.168.1.106/getit_final/";
-	//var base_url = "http://localhost/getit_final/";
-	var base_url = "http://casaestilo.in/sumotech/getit/";
+	var base_url = "http://localhost/getit_final/";
+	//var base_url = "http://casaestilo.in/sumotech/getit/";
 	
 	
 	
@@ -27,26 +27,17 @@ $(document).ready(function(){
 				$("#nav_register_btn").show();
 				$("#nav_logout_btn").hide();
 			}
-			$("#loader").hide();
+			$("#loader").fadeOut();
 		});
 	}
 	
 	get_header();
 	
 	$(".welcome_screen").on("click",function(){
-		//$(this).animate('left','-100%');
-		//
-        //$("#login_register_page").addClass("login_register_page_active");
-		//$(this).hide();
-        $(this).animate({left: "-100%"},750,'linear',function(){
-			
 		
-	});
-        
-		
-		
-		
-		//$("#enter_code").show();
+        $(this).animate({opacity: "toggle"},1000);
+        //$(this).animate({left: "-100%"},700);
+        //$(this).fadeOut('1000');
 	});
 	
 	// all products slider
@@ -382,20 +373,21 @@ $(document).ready(function(){
 				html  = JSON.parse(html);
 				
 				if(html.validation_error){
-					$("#loader").fadeOut();
+					
 					//swal($(html.validation_error).text());
 					if($("#enter_code").find('.alert-danger')){
 						$(".alert-danger").remove();
 					}
 					$("#enter_code").append("<div class='alert-danger'>"+html.validation_error+"</div>");
+					$("#loader").fadeOut();
 				}
 				if(html.error){
-					$("#loader").fadeOut();
 					//swal($(html.error).text());
 					if($("#enter_code").find('.alert-danger')){
 						$(".alert-danger").remove();
 					}
 					$("#enter_code").append("<div class='alert-danger'>"+html.error+"</div>");
+					$("#loader").fadeOut();
 				}
 				
 				if(html.products){
@@ -446,9 +438,10 @@ $(document).ready(function(){
 					$(".all_pages").hide();
 					
 					$("#page_products").show(function(){
-						$("#loader").fadeOut();
 						all_products_slider.reloadSlider();
+						
 					});
+					$("#loader").fadeOut();
 					
 				}
 				
@@ -862,8 +855,8 @@ $("#login-register_register_btn").on("click",function(){
 });
 
 $(".login-register_skip").on("click",function(){
-	$(".all_pages").hide();
-	$("#enter_code").show();
+	$(".all_pages").fadeOut();
+	$("#enter_code").fadeIn();
 });
 
 //------------------login-regiser ends----------------------------------
