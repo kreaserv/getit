@@ -772,7 +772,7 @@ $(document).ready(function(){
 					swal($(html.validation_error).text());
 				}
 				if(html.success == "yes" ){
-					swal("Registered Successfully");
+					swal("Registered Successfully </br>check email to activate account");
 					
 				}
 				if(html.error == "yes"){
