@@ -33,13 +33,15 @@ $(document).ready(function(){
 	
 	get_header();
 	
-	$(".welcome_screen").on("click",function(){
-		
-        $(this).animate({opacity: "toggle"},1000);
-        //$(this).animate({left: "-100%"},700);
-        //$(this).fadeOut('1000');
-	});
-	
+	//$(".welcome_screen").on("click",function(){
+	//	
+    //    $(this).animate({opacity: "toggle"},1000);
+    //    //$(this).animate({left: "-100%"},700);
+    //    //$(this).fadeOut('1000');
+	//});
+	setTimeout(function(){ 
+		 $(this).animate({opacity: "toggle"},1000);
+	}, 3000);
 	// all products slider
 	var all_products_slider = $('#all_products_slider').bxSlider({
 		mode: 'vertical',
