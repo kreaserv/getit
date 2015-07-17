@@ -4,7 +4,7 @@ $(document).ready(function(){
 	//var base_url = "http://192.168.1.106/getit_final/";
 	//var base_url = "http://localhost/getit_final/";
 	var base_url = "http://casaestilo.in/sumotech/getit/";
-	
+	var pre_url = "";
 	
 	
 	
@@ -617,7 +617,10 @@ $(document).ready(function(){
 			$("#loader").hide();
 			//console.log(data);
 			if(data.not_logged_in){
-				swal("Please Login.");
+				//swal("Please Login.");
+				pre_url = $(".check_out_btn");
+				$(".all_pages").hide();
+				$("#login_register_page").fadeIn();
 			}
 			
 			if(data.total_amount){
@@ -702,7 +705,13 @@ $(document).ready(function(){
 				}
 				if(html.success == "yes" ){
 					get_header();
-					swal("Logged In Successfully");
+					if(pre_url !== ""){
+						pre_url.click();
+					}else{
+						$(".all_pages").hide();
+						$("#enter_code").fadeIn();
+						//swal("Logged In Successfully");
+					}
 				}
 				if(html.error){
 					swal($(html.error).text());
@@ -776,7 +785,9 @@ $(document).ready(function(){
 				}
 				if(html.success == "yes" ){
 					swal("Registered Successfully </br>check email to activate account");
-					
+					$(".all_pages").hide();
+					$("#enter_code").fadeIn();
+						
 				}
 				if(html.error == "yes"){
 					swal("Something Went Wrong");
@@ -796,36 +807,36 @@ $(document).ready(function(){
 	$(".address_dropdown").on("click",function(){
 		$(".address_form").toggle();
 	});
-	$("save_address").on("click",function(){
-	
-		$("#loader").show();
-		
-		$.ajax({
-			url: base_url+"home/save_address",
-			type: 'POST',
-			data: $("form.address_form_tag").serialize(),
-			success: function(html)
-			{	
-				html  = JSON.parse(html); 
-				console.log(html.address.length);
-				$("#loader").fadeOut();
-				if(html.not_logged_in){
-					swal("Please Login");
-				}
-				$(".address_form").hide();
-				
-				if(html.address.name !== ''){
-					$("#user_address").html("");
-					var address = html.address;
-					var address_text = address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no;
-					$("#user_address").html(address_text);
-				}
-				
-				
-			}
-		});
-		
-	});
+	//$("save_address").on("click",function(){
+	//
+	//	$("#loader").show();
+	//	
+	//	$.ajax({
+	//		url: base_url+"home/save_address",
+	//		type: 'POST',
+	//		data: $("form.address_form_tag").serialize(),
+	//		success: function(html)
+	//		{	
+	//			html  = JSON.parse(html); 
+	//			console.log(html.address.length);
+	//			$("#loader").fadeOut();
+	//			if(html.not_logged_in){
+	//				swal("Please Login");
+	//			}
+	//			$(".address_form").hide();
+	//			
+	//			if(html.address.name !== ''){
+	//				$("#user_address").html("");
+	//				var address = html.address;
+	//				var address_text = address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no;
+	//				$("#user_address").html(address_text);
+	//			}
+	//			
+	//			
+	//		}
+	//	});
+	//	
+	//});
 	
 	$('.address_form_tag').ajaxForm(function(html) {  
 		html  = JSON.parse(html); 
