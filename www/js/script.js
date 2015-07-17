@@ -39,8 +39,9 @@ $(document).ready(function(){
     //    //$(this).animate({left: "-100%"},700);
     //    //$(this).fadeOut('1000');
 	//});
+	
 	setTimeout(function(){ 
-		 $(this).animate({opacity: "toggle"},1000);
+		 $('.welcome_screen').animate({opacity: "toggle"},1000);
 	}, 3000);
 	// all products slider
 	var all_products_slider = $('#all_products_slider').bxSlider({
