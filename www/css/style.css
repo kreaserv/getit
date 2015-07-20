@@ -731,7 +731,7 @@
   width: 100%;
   /* display: inline-block; */
   /* padding: 5%; */
-  padding: 10px 16px 10px 5%;
+  padding: 10px 0px 10px 5%;
   /* text-align: right; */
   box-shadow: 1px 4px 12px 0px #000;
   text-align: left;
@@ -739,7 +739,7 @@
 }
 
 .login_page_input{
-	width: 85%;
+	width: 95%;
 	border: none;
 	background-color: #ffcc00;
 	height: 100%;
