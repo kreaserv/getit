@@ -784,7 +784,7 @@ $(document).ready(function(){
 					swal($(html.validation_error).text());
 				}
 				if(html.success == "yes" ){
-					swal("Registered Successfully </br>check email to activate account");
+					swal("Registered Successfully <br /> check email to activate account");
 					$(".all_pages").hide();
 					$("#enter_code").fadeIn();
 						
