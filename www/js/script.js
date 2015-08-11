@@ -2,8 +2,8 @@
 $(document).ready(function(){
 	
 	//var base_url = "http://192.168.1.106/getit_final/";
-	//var base_url = "http://localhost/getit_final/";
-	var base_url = "http://casaestilo.in/sumotech/getit/";
+	var base_url = "http://localhost/getit_final/";
+	//var base_url = "http://casaestilo.in/sumotech/getit/";
 	var pre_url = "";
 	
 	
@@ -364,6 +364,18 @@ $(document).ready(function(){
 	
 		$('#getit_code1').on('keypress',function(){
 			$('#getit_code2').focus();
+		});
+		$('#getit_code2').on('keypress',function(){
+			$('#getit_code3').focus();
+		});
+		$('#getit_code3').on('keypress',function(){
+			$('#getit_code4').focus();
+		});
+		$('#getit_code4').on('keypress',function(){
+			$('#getit_code5').focus();
+		});
+		$('#getit_code5').on('keypress',function(){
+			$('#getit_code6').focus();
 		});
 	$("#submit_code").on("click",function(){
 		$("#loader").fadeIn();
