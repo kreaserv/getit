@@ -361,10 +361,13 @@ $(document).ready(function(){
 //-------------------header end---------------------
 
 //-------------------enter_code start-------------------
+	$('.inputs').keydown(function (e) {
+		 $(this).next().find('.inputs').focus();
+	});
 	$("#submit_code").on("click",function(){
 		$("#loader").fadeIn();
 		var form_data = {
-						getit_code : $("#getit_code").val()
+						getit_code : $("#getit_code1").val()+$("#getit_code2").val()+$("#getit_code3").val()+$("#getit_code4").val()+$("#getit_code5").val()+$("#getit_code6").val()
 					 }
 		$.ajax({
 			url: base_url+"home/home_products",
