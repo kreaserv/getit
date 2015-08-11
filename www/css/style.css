@@ -735,7 +735,7 @@
   /* text-align: right; */
   box-shadow: 1px 4px 12px 0px #000;
   text-align: left;
-  position: relative;
+  position: absolute;
 }
 
 .login_page_input{
