@@ -870,7 +870,7 @@
 	box-shadow: 1px 4px 10px 2px #000;
 }
 .login-register-container{
-	bottom: 18%;
+	top: 30%;
 	position: absolute;
 	width: 80%;
 	left: 0;
