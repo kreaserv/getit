@@ -362,21 +362,22 @@ $(document).ready(function(){
 
 //-------------------enter_code start-------------------
 	
-		$('#getit_code1').on('keypress',function(){
-			$('#getit_code2').focus();
-		});
-		$('#getit_code2').on('keypress',function(){
-			$('#getit_code3').focus();
-		});
-		$('#getit_code3').on('keypress',function(){
-			$('#getit_code4').focus();
-		});
-		$('#getit_code4').on('keypress',function(){
-			$('#getit_code5').focus();
-		});
-		$('#getit_code5').on('keypress',function(){
-			$('#getit_code6').focus();
-		});
+	$('#getit_code1').on('keypress',function(){
+		$('#getit_code2').focus();
+	});
+	$('#getit_code2').on('keypress',function(){
+		$('#getit_code3').focus();
+	});
+	$('#getit_code3').on('keypress',function(){
+		$('#getit_code4').focus();
+	});
+	$('#getit_code4').on('keypress',function(){
+		$('#getit_code5').focus();
+	});
+	$('#getit_code5').on('keypress',function(){
+		$('#getit_code6').focus();
+	});
+	
 	$("#submit_code").on("click",function(){
 		$("#loader").fadeIn();
 		var form_data = {
@@ -456,10 +457,8 @@ $(document).ready(function(){
 					});
 					$(".all_pages").hide();
 					
-					$("#page_products").show(function(){
-						all_products_slider.reloadSlider();
-						
-					});
+					$("#page_products").show();
+					all_products_slider.reloadSlider();
 					$("#loader").fadeOut();
 					
 				}
