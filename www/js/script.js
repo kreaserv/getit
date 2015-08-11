@@ -361,9 +361,10 @@ $(document).ready(function(){
 //-------------------header end---------------------
 
 //-------------------enter_code start-------------------
-	$('.inputs').keydown(function (e) {
-		 $(this).next().find('.inputs').focus();
-	});
+	
+		$('#getit_code1').on('keypress',function(){
+			$('#getit_code2').focus();
+		});
 	$("#submit_code").on("click",function(){
 		$("#loader").fadeIn();
 		var form_data = {
