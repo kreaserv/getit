@@ -2,8 +2,8 @@
 $(document).ready(function(){
 	
 	//var base_url = "http://192.168.1.106/getit_final/";
-	//var base_url = "http://localhost/getit_final/";
-	var base_url = "http://casaestilo.in/sumotech/getit/";
+	var base_url = "http://localhost/getit_final/";
+	//var base_url = "http://casaestilo.in/sumotech/getit/";
 	var pre_url = "";
 	
 	
@@ -89,6 +89,7 @@ $(document).ready(function(){
 				$("#enter_code").fadeIn(function(){
 					$("#loader").fadeOut();
 				});
+				$('#getit_code1').focus();
 		});
 		
 	
@@ -457,8 +458,10 @@ $(document).ready(function(){
 					});
 					$(".all_pages").hide();
 					
-					$("#page_products").show();
-					all_products_slider.reloadSlider();
+					$("#page_products").show(function(){
+						all_products_slider.reloadSlider();
+						
+					});
 					$("#loader").fadeOut();
 					
 				}
@@ -541,7 +544,7 @@ $(document).ready(function(){
 		
 	});
 	
-	$("#add_to_wish").on("click",function(){
+	$(".add_to_wish_function").on("click",function(){
 		
 		$("#loader").fadeIn();
 		url = base_url+"home/add_to_wish/"+$(this).attr("alt");

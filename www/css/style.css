@@ -328,6 +328,7 @@
 	padding: 4px;
 	color: #fff;
 	margin: 0;
+	display: inline-block;
 }
 .description_div{
 	font-size: 22px;
@@ -445,6 +446,13 @@
 	position: absolute;
 	right: 10px;
 	color: #ccc;
+}
+
+.main_product_heart{
+	font-size: 22px !important;
+    margin-right: 10px;
+    color: #;
+    color: #fe1f3e;
 }
 
 /*==============================================
