@@ -1,10 +1,9 @@
-//var base_url = "http://localhost/getit_final/";
-var base_url = "http://casaestilo.in/sumotech/getit/";
+
 $(document).ready(function(){
 	
 	//var base_url = "http://192.168.1.106/getit_final/";
-	
-	
+	//var base_url = "http://localhost/getit_final/";
+	var base_url = "http://casaestilo.in/sumotech/getit/";
 	var pre_url = "";
 	
 	
@@ -382,7 +381,98 @@ $(document).ready(function(){
 		$('#getit_code6').focus();
 	});
 	
-	
+	$("#submit_code").on("click",function(){
+		document.addEventListener("backbutton",searchpage, false);
+		$("#loader").fadeIn();
+		var form_data = {
+						getit_code : $("#getit_code1").val()+$("#getit_code2").val()+$("#getit_code3").val()+$("#getit_code4").val()+$("#getit_code5").val()+$("#getit_code6").val()
+					 }
+		$.ajax({
+			url: base_url+"home/home_products",
+			type: 'POST',
+			data: form_data,
+			success: function(html)
+			{
+				console.log(html);
+				html  = JSON.parse(html);
+				
+				if(html.validation_error){
+					
+					//swal($(html.validation_error).text());
+					if($("#enter_code").find('.alert-danger')){
+						$(".alert-danger").remove();
+					}
+					$("#enter_code").append("<div class='alert-danger'>"+html.validation_error+"</div>");
+					$("#loader").fadeOut();
+				}
+				if(html.error){
+					//swal($(html.error).text());
+					if($("#enter_code").find('.alert-danger')){
+						$(".alert-danger").remove();
+					}
+					$("#enter_code").append("<div class='alert-danger'>"+html.error+"</div>");
+					$("#loader").fadeOut();
+				}
+				
+				if(html.products){
+					document.addEventListener("backbutton", searchpage, false);
+					for(var i=0;i<html.products.length;i++){
+						//console.log(html.products[i]);
+						if(i == 0){
+							$("#selected_product").attr("src",base_url+"uploads/products/"+html.products[i]["image"]);
+							$("#selected_product").attr("alt",html.products[i]["product_id"]);
+							
+							$("#desc").html(html.products[i]["description"]);
+							$("#product_name").html(html.products[i]["product_name"]);
+							
+							$("#price").html(html.products[i]["price"]);
+							$(".add_to_cart_wish_btn").attr("alt",html.products[i]["product_id"]);
+							$("#all_products_slider").append("<img src='"+base_url+"uploads/products/small/"+html.products[i]["image"]+"' alt='"+html.products[i]["product_id"]+"' class='get_product active_border' />");
+						}else{
+							$("#all_products_slider").append("<img src='"+base_url+"uploads/products/small/"+html.products[i]["image"]+"' alt='"+html.products[i]["product_id"]+"' class='get_product' />");
+						
+						}
+						
+						
+					
+					}
+					
+					
+
+					$(".get_product").on("click",function(){
+						$("#loader").fadeIn();
+						$(".get_product").removeClass("active_border");
+						$(this).addClass("active_border");
+						url = base_url+"home/get_product/"+$(this).attr("alt");
+						$.getJSON(url, function(data) {
+							//console.log(data.product_id);
+							$("#selected_product").attr("src",base_url+"uploads/products/"+data.image);
+							$("#selected_product").attr("alt",data.product_id);
+							
+							$("#desc").html(data.description);
+							$("#product_name").html(data.product_name);
+							$("#price").html(data.price);
+							$(".add_to_cart_wish_btn").attr("alt",data.product_id);
+							$("#loader").fadeOut();
+						});
+					
+					
+					
+					});
+					$(".all_pages").hide();
+					
+					$("#page_products").show(function(){
+						all_products_slider.reloadSlider();
+						
+					});
+					$("#loader").fadeOut();
+					
+				}
+				
+				
+			}
+		});
+	});
 	$(".overlay_open_close").on("click",function(){
 		$(".add_to_cart_wish_overlay").toggle();
 	});
@@ -805,100 +895,7 @@ $(".login-register_skip").on("click",function(){
 });
 
 //------------------login-regiser ends----------------------------------
-
-});
 function searchpage(){
 	alert("wqsd");
 }
-$("#submit_code").on("click",function(){
-		
-		$("#loader").fadeIn();
-		var form_data = {
-						getit_code : $("#getit_code1").val()+$("#getit_code2").val()+$("#getit_code3").val()+$("#getit_code4").val()+$("#getit_code5").val()+$("#getit_code6").val()
-					 }
-		$.ajax({
-			url: base_url+"home/home_products",
-			type: 'POST',
-			data: form_data,
-			success: function(html)
-			{
-				console.log(html);
-				html  = JSON.parse(html);
-				
-				if(html.validation_error){
-					
-					//swal($(html.validation_error).text());
-					if($("#enter_code").find('.alert-danger')){
-						$(".alert-danger").remove();
-					}
-					$("#enter_code").append("<div class='alert-danger'>"+html.validation_error+"</div>");
-					$("#loader").fadeOut();
-				}
-				if(html.error){
-					//swal($(html.error).text());
-					if($("#enter_code").find('.alert-danger')){
-						$(".alert-danger").remove();
-					}
-					$("#enter_code").append("<div class='alert-danger'>"+html.error+"</div>");
-					$("#loader").fadeOut();
-				}
-				
-				if(html.products){
-					document.addEventListener("backbutton", searchpage, false);
-					for(var i=0;i<html.products.length;i++){
-						//console.log(html.products[i]);
-						if(i == 0){
-							$("#selected_product").attr("src",base_url+"uploads/products/"+html.products[i]["image"]);
-							$("#selected_product").attr("alt",html.products[i]["product_id"]);
-							
-							$("#desc").html(html.products[i]["description"]);
-							$("#product_name").html(html.products[i]["product_name"]);
-							
-							$("#price").html(html.products[i]["price"]);
-							$(".add_to_cart_wish_btn").attr("alt",html.products[i]["product_id"]);
-							$("#all_products_slider").append("<img src='"+base_url+"uploads/products/small/"+html.products[i]["image"]+"' alt='"+html.products[i]["product_id"]+"' class='get_product active_border' />");
-						}else{
-							$("#all_products_slider").append("<img src='"+base_url+"uploads/products/small/"+html.products[i]["image"]+"' alt='"+html.products[i]["product_id"]+"' class='get_product' />");
-						
-						}
-						
-						
-					
-					}
-					
-					
-
-					$(".get_product").on("click",function(){
-						$("#loader").fadeIn();
-						$(".get_product").removeClass("active_border");
-						$(this).addClass("active_border");
-						url = base_url+"home/get_product/"+$(this).attr("alt");
-						$.getJSON(url, function(data) {
-							//console.log(data.product_id);
-							$("#selected_product").attr("src",base_url+"uploads/products/"+data.image);
-							$("#selected_product").attr("alt",data.product_id);
-							
-							$("#desc").html(data.description);
-							$("#product_name").html(data.product_name);
-							$("#price").html(data.price);
-							$(".add_to_cart_wish_btn").attr("alt",data.product_id);
-							$("#loader").fadeOut();
-						});
-					
-					
-					
-					});
-					$(".all_pages").hide();
-					
-					$("#page_products").show(function(){
-						all_products_slider.reloadSlider();
-						
-					});
-					$("#loader").fadeOut();
-					
-				}
-				
-				
-			}
-		});
-	});
+});
