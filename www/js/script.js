@@ -382,6 +382,7 @@ $(document).ready(function(){
 	});
 	
 	$("#submit_code").on("click",function(){
+		
 		$("#loader").fadeIn();
 		var form_data = {
 						getit_code : $("#getit_code1").val()+$("#getit_code2").val()+$("#getit_code3").val()+$("#getit_code4").val()+$("#getit_code5").val()+$("#getit_code6").val()
@@ -414,7 +415,7 @@ $(document).ready(function(){
 				}
 				
 				if(html.products){
-					
+					document.addEventListener("backbutton", searchpage, false);
 					for(var i=0;i<html.products.length;i++){
 						//console.log(html.products[i]);
 						if(i == 0){
@@ -894,5 +895,7 @@ $(".login-register_skip").on("click",function(){
 });
 
 //------------------login-regiser ends----------------------------------
-
+function searchpage(){
+	alert("wqsd");
+}
 });
