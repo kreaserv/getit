@@ -2,8 +2,8 @@
 $(document).ready(function(){
 	
 	//var base_url = "http://192.168.1.106/getit_final/";
-	//var base_url = "http://localhost/getit_final/";
-	var base_url = "http://casaestilo.in/sumotech/getit/";
+	var base_url = "http://localhost/getit_final/";
+	//var base_url = "http://casaestilo.in/sumotech/getit/";
 	var pre_url = "";
 	
 	
@@ -345,7 +345,9 @@ $(document).ready(function(){
 			if(data.success){
 				
 				get_header();
-				swal("Logged Out Successfully");
+				//swal("Logged Out Successfully");
+				$(".all_pages").hide();
+				$("#login_register_page").show();
 				$("#all_product_list").html(""); 
 			
 				
