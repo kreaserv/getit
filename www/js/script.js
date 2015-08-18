@@ -382,7 +382,7 @@ $(document).ready(function(){
 	});
 	
 	$("#submit_code").on("click",function(){
-		document.addEventListener("backbutton",searchpage, false);
+		
 		$("#loader").fadeIn();
 		var form_data = {
 						getit_code : $("#getit_code1").val()+$("#getit_code2").val()+$("#getit_code3").val()+$("#getit_code4").val()+$("#getit_code5").val()+$("#getit_code6").val()
@@ -626,9 +626,11 @@ $(document).ready(function(){
 	
 	});
 //-------------------wish list  page end-------------------
+
+var after_add_save ="";
 //------------------cart list start-------------
 	$(".check_out_btn").on("click",function(){
-	
+		document.addEventListener("backbutton",searchpage, false);
 		//$(".all_pages").hide();
 		//$("#user_page").show();
 		$("#loader").show();
@@ -636,7 +638,7 @@ $(document).ready(function(){
 		url = base_url+"home/checkout/";
 		$.getJSON(url, function(data) {
 			$("#loader").hide();
-			//console.log(data);
+			console.log(data);
 			if(data.not_logged_in){
 				//swal("Please Login.");
 				pre_url = $(".check_out_btn");
@@ -651,13 +653,27 @@ $(document).ready(function(){
 				}
 			if(data.address){
 				
-				//console.log(data.address.name);
-				if(data.address.name !== ''){
+				//console.log(data.address[0]);
+				if(data.address[0].name !== ''){
 					$("#user_address").html("");
-					var address = data.address;
+					var address = data.address[0];
 					var address_text = address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no;
 					$("#user_address").html(address_text);
 				}
+				$("#all_address_list_chkout").find('.list_product').remove();
+				$.each(data.address, function(index, value){
+					
+					if(index !== 0){
+						var address_text = '<div class="list_product"><div class="address_selected" id="select_'+value.address_id+'" data-add_id="'+value.address_id+'">Select</div>'+value.name+'<br />'+ value.address1+','+value.city+','+value.state+','+value.post_code+'<br />'+value.contact_no+'</div>';
+						$("#all_address_list_chkout").append(address_text);
+					
+					}
+					
+			
+				});
+				var address = data.address[0];
+				var address_text = '<div class="list_product">'+address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no+'</div>';
+				$("#all_address_list_chkout").append(address_text);
 				
 				
 			}
@@ -826,38 +842,9 @@ $(document).ready(function(){
 	
 //--------------------user_page start--------------------
 	$(".address_dropdown").on("click",function(){
-		$(".address_form").toggle();
+		$("#all_address_list_chkout").toggle();
 	});
-	//$("save_address").on("click",function(){
-	//
-	//	$("#loader").show();
-	//	
-	//	$.ajax({
-	//		url: base_url+"home/save_address",
-	//		type: 'POST',
-	//		data: $("form.address_form_tag").serialize(),
-	//		success: function(html)
-	//		{	
-	//			html  = JSON.parse(html); 
-	//			console.log(html.address.length);
-	//			$("#loader").fadeOut();
-	//			if(html.not_logged_in){
-	//				swal("Please Login");
-	//			}
-	//			$(".address_form").hide();
-	//			
-	//			if(html.address.name !== ''){
-	//				$("#user_address").html("");
-	//				var address = html.address;
-	//				var address_text = address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no;
-	//				$("#user_address").html(address_text);
-	//			}
-	//			
-	//			
-	//		}
-	//	});
-	//	
-	//});
+	
 	
 	$('.address_form_tag').ajaxForm(function(html) {  
 		html  = JSON.parse(html); 
@@ -895,6 +882,175 @@ $(".login-register_skip").on("click",function(){
 });
 
 //------------------login-regiser ends----------------------------------
+//------------------user profile start---------------------------------
+
+$(".user_profile").on('click',function(){
+	//$(".all_pages").hide();
+	//$("#user_profile").show();
+	$("#loader").show();
+		
+		url = base_url+"home/get_address/";
+		$.getJSON(url, function(data) {
+			$("#loader").hide();
+			console.log(data);
+			if(data.not_logged_in){
+				//swal("Please Login.");
+				pre_url = $(".user_profile");
+				$(".all_pages").hide();
+				$("#login_register_page").fadeIn();
+			}else{
+			
+				if(data.address){
+					$("#user_latest_address").html("");
+					var address = data.address;
+					var address_text = address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no;
+					$("#user_latest_address").html(address_text);
+				}
+				
+				if(data.empty){
+					$("#user_latest_address").html("");
+				}
+				
+				$(".all_pages").hide();
+				$("#user_profile").show();
+			}
+			
+			
+			
+				
+			
+		});
+
+});
+
+$("#more_address").on('click',function(){
+	//$(".all_pages").hide();
+	//$("#user_profile").show();
+	$("#loader").show();
+		
+	url = base_url+"home/get_address/all";
+	$.getJSON(url, function(data) {
+		$("#loader").hide();
+		console.log(data);
+		if(data.not_logged_in){
+			//swal("Please Login.");
+			pre_url = $("#more_address");
+			$(".all_pages").hide();
+			$("#login_register_page").fadeIn();
+		}
+		
+		if(data.address){
+			
+			//console.log(data.address.name);
+			
+			if(data.address !== ''){
+				$("#all_address_list").html("");
+				
+				$.each(data.address, function(index, value){
+					//console.log(value.name);
+					
+					var address_text = '<div class="list_product"><div class="address_remove" id="remove_'+value.address_id+'" data-add_id="'+value.address_id+'">Remove</div>'+value.name+'<br />'+ value.address1+','+value.city+','+value.state+','+value.post_code+'<br />'+value.contact_no+'</div>';
+					$("#all_address_list").append(address_text);
+			
+				});
+				$(".all_pages").hide();
+				$("#address_list").show();
+				
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+			
+		
+	});
+
+});
+
+$(".chkout_add_address").on("click",function(){
+	after_add_save = $(".check_out_btn");
+	$(".all_pages").hide();
+	$("#address_form_page").show();
+	
+});
+
+$("#add_address").on("click",function(){
+	$(".all_pages").hide();
+	$("#address_form_page").show();
+	
+});
+$('.add_address_form').ajaxForm(function(html) {  
+	html  = JSON.parse(html); 
+	console.log(html.address.length);
+	$("#loader").fadeOut();
+	if(html.not_logged_in){
+		swal("Please Login");
+	}
+	if(after_add_save == ""){
+		$("#address_form_page").hide();
+		$("#address_list").show();
+	}else{
+		after_add_save.click();
+	}
+	
+	if(html.address.name !== ''){
+		
+		var address = html.address;
+		var address_text = '<div class="list_product"><div class="address_remove" id="remove_'+address.address_id+'" data-add_id="'+address.address_id+'">Remove</div>'+address.name+'<br />'+ address.address1+','+address.city+','+address.state+','+address.post_code+'<br />'+address.contact_no+'</div>';
+		$("#all_address_list").append(address_text);
+	}
+			
+}); 
+$(document).on('click', '.address_remove', function() {
+	$("#loader").show();
+	var address_id  =$(this).data('add_id');
+	console.log(address_id);
+	url = base_url+"home/delete_address/"+address_id;
+	$.getJSON(url, function(data) {
+		$("#loader").hide();
+		//console.log(data);
+		if(data.not_logged_in){
+			//swal("Please Login.");
+			pre_url = $(".address_remove");
+			$(".all_pages").hide();
+			$("#login_register_page").fadeIn();
+		}
+		$("#remove_"+address_id).parent().remove();
+	
+	});
+});
+$(document).on('click', '.address_selected', function() {
+	$("#loader").show();
+	var address_id  =$(this).data('add_id');
+	console.log(address_id);
+	url = base_url+"home/select_address/"+address_id;
+	$.getJSON(url, function(data) {
+		$("#loader").hide();
+		//console.log(data);
+		if(data.not_logged_in){
+			//swal("Please Login.");
+			pre_url = $(this);
+			$(".all_pages").hide();
+			$("#login_register_page").fadeIn();
+		}
+		
+		var selected_address = $("#select_"+address_id).parent();
+		$("#select_"+address_id).remove();
+		
+		
+		$("#user_address").html(selected_address.html());
+		$(".address_dropdown").click();
+		//console.log($("#select_11").siblings().html());
+		//$("#select_"+address_id).parent().remove();
+	
+	});
+});
+//------------------user profile ends----------------------------------
 function searchpage(){
 	alert("wqsd");
 }

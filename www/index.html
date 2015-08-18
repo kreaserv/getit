@@ -250,7 +250,7 @@
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6 price_n_dropdown">
 					<span class="price_label"><i class="fa fa-inr"></i><label id="total_amount"></label>/-</span>
-					<span class="drop_down"><i class="fa fa-caret-down"></i></span>
+					<!-- <span class="drop_down"><i class="fa fa-caret-down"></i></span> -->
 					
 				</div>
 			</div>
@@ -261,8 +261,12 @@
 				<div class="col-xs-9 col-sm-9 col-md-9 cart_img_my_total payment_method_text">
 					<img src="images/rupee.png" class="rupee_img" alt="" />
 					<span class="my_total " >Payment Method</span>
+					<div style="display:none" class="payment_modes" id="payment_method">
+						<p>Cash On Delivery</p>
+						<p>Card</p>
+					</div>
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown">
+				<div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown" onclick="$('#payment_method').toggle();">
 					<span class="drop_down"><i class="fa fa-caret-down"></i></span>
 					
 				</div>
@@ -275,7 +279,8 @@
 					<img src="images/location.png" class="location_img" alt="" />
 					<span class="my_total user_address" >Your Address</span>
 					<div class="address_form">
-						<form class="address_form_tag" method="post" action="http://casaestilo.in/sumotech/getit/home/save_address">
+						
+						<form class="address_form_tag" style="display:none;" method="post" action="http://casaestilo.in/sumotech/getit/home/save_address">
 							<input type="text" class="address_input" name="address_name" placeholder="Name *" required />
 							<!-- <input type="text" class="address_input" id="full_address" placeholder="Address *"/> -->
 							<textarea class="address_input" name="full_address" placeholder="Address *" cols="30" rows="2" required></textarea>
@@ -288,6 +293,9 @@
 						</form>
 					</div>
 					<p class="user_address_p " id="user_address"></p>
+					<div id="all_address_list_chkout" style="display:none">
+						<p class="chkout_add_address">Add Address</p>
+					</div>
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown">
 					<span class="drop_down address_dropdown"><i class="fa fa-caret-down"></i></span>
@@ -414,6 +422,94 @@
 		</div>
 	</section>
 	<!-- -------------------Register section ends----------------------------->
+	
+	<!-- -------------------user profile section starts----------------------------->
+	<section class="all_pages" id="user_profile" style="margin-top:0px;">
+		<div class="container-fluid no_padding user_page_container">
+		
+			<h3 class="dear_user">Dear User</h3>
+			
+			<img src="images/user.png" class="user_image" alt="" />
+			<div class="container-fluid no_padding user_my_total">
+					
+				<div class="col-xs-12 col-sm-12 col-md-12 box_shadow"></div>	
+				<div class="col-xs-6 col-sm-6 col-md-6 cart_img_my_total">
+					<img src="images/cart.png" class="cart_img" alt="" />
+					<span class="my_total" >My Orders</span>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 price_n_dropdown">
+					<!-- <span class="price_label"><i class="fa fa-inr"></i><label id="total_amount"></label>/-</span>
+					<span class="drop_down"><i class="fa fa-caret-down"></i></span> -->
+					
+				</div>
+			</div>
+			
+			
+			<div class="container-fluid no_padding user_my_total payment_method" style="margin-bottom:18%;">
+					
+					
+				<div class="col-xs-9 col-sm-9 col-md-9 cart_img_my_total payment_method_text">
+					<img src="images/location.png" class="location_img" alt="" />
+					<span class="my_total user_address" >My Address</span>
+				
+					<p class="user_address_p " id="user_latest_address"></p>
+					<p id="more_address">View More</p>
+				</div>
+				<!-- <div class="col-xs-3 col-sm-3 col-md-3 price_n_dropdown">
+					<span class="drop_down address_dropdown"><i class="fa fa-caret-down"></i></span>
+					
+				</div> -->
+			</div>
+			
+			<!-- <div class="container-fluid no_padding">
+					
+					
+				<div class="col-xs-12 col-sm-12 col-md-12 no_padding">
+					<input type="button" value="Pay Now" class="pay_now_button"/>
+				</div>
+				
+			</div> -->
+			
+		</div>	
+		
+	
+	</section>
+	<!-- -------------------user profile section ends----------------------------->
+
+	<!-- -------------------Address List section starts--------------------------------->
+		<section class="all_pages margin_top_0" id="address_list">
+			<div class="container-fluid no_padding" style="text-align: left;">
+				<h2 class="list_h2" style="width:50%">My Address</h2><span id="add_address">Add Address</span>
+				<div id="all_address_list" >
+					
+				</div>
+				
+			</div>
+		</section>
+	
+	<!-- -------------------Address List section ends----------------------------->
+	
+	<!-- -------------------Address List section starts--------------------------------->
+		<section class="all_pages margin_top_0" id="address_form_page">
+			<div class="container-fluid no_padding" style="text-align: left;">
+			
+					<form class="add_address_form" method="post" action="http://localhost/getit_final/home/save_address">
+						<input type="text" class="address_input" name="address_name" placeholder="Name *" required />
+						<!-- <input type="text" class="address_input" id="full_address" placeholder="Address *"/> -->
+						<textarea class="address_input" name="full_address" placeholder="Address *" cols="30" rows="2" required></textarea>
+						<input type="text" class="address_input" name="address_city" placeholder="City *" required/>
+						
+						<input type="text" class="address_input" name="address_state" placeholder="State *"  required />
+						<input type="text" class="address_input" name="address_pin" placeholder="Pincode *" required />
+						<input type="text" class="address_input" name="address_phone" placeholder="Contact no. *" pattern='[0-9]*' maxlength="10"  required />
+						<button id="save_address" class="address_input">Save</button>
+					</form>
+			
+				
+			</div>
+		</section>
+	
+	<!-- -------------------Address List section ends----------------------------->
 		
 		
         <script type="text/javascript" src="js/cordova.js"></script>
