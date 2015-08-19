@@ -630,7 +630,7 @@ $(document).ready(function(){
 var after_add_save ="";
 //------------------cart list start-------------
 	$(".check_out_btn").on("click",function(){
-		document.addEventListener("backbutton",searchpage, false);
+		document.addEventListener("backbutton",searchpage, true);
 		//$(".all_pages").hide();
 		//$("#user_page").show();
 		$("#loader").show();
