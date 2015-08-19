@@ -634,7 +634,7 @@ var after_add_save ="";
 		//$(".all_pages").hide();
 		//$("#user_page").show();
 //		$("#loader").show();
-		
+		alert("after back button");
 		url = base_url+"home/checkout/";
 		$.getJSON(url, function(data) {
 			$("#loader").hide();
