@@ -35,7 +35,8 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 		alert("Device ready triggered");
-    },
+		console.log("event triggeered");
+		},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
