@@ -633,7 +633,7 @@ var after_add_save ="";
 		document.addEventListener("backbutton",searchpage, true);
 		//$(".all_pages").hide();
 		//$("#user_page").show();
-		$("#loader").show();
+//		$("#loader").show();
 		
 		url = base_url+"home/checkout/";
 		$.getJSON(url, function(data) {
@@ -641,9 +641,9 @@ var after_add_save ="";
 			console.log(data);
 			if(data.not_logged_in){
 				//swal("Please Login.");
-				pre_url = $(".check_out_btn");
-				$(".all_pages").hide();
-				$("#login_register_page").fadeIn();
+	//			pre_url = $(".check_out_btn");
+//				$(".all_pages").hide();
+//				$("#login_register_page").fadeIn();
 			}
 			
 			if(data.total_amount){
